@@ -6,7 +6,7 @@
 /*   By: alappas <alappas@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 12:06:09 by alappas           #+#    #+#             */
-/*   Updated: 2023/07/05 14:15:21 by alappas          ###   ########.fr       */
+/*   Updated: 2024/04/14 02:29:46 by alappas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,18 @@
 #  define BUFFER_SIZE 10
 # endif
 
+# if defined(__linux__)
+#  ifndef OPEN_MAX
+#   define OPEN_MAX 1024
+#  endif
+# endif
+
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
